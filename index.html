@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy New Year 🎉 — by Moiz</title>
+  <style>
+    :root{
+      --bg1:#050016; --bg2:#061a2b;
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(255,255,255,.12);
+      --txt:#fff;
+      --muted: rgba(255,255,255,.78);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; overflow:hidden;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 18% 22%, rgba(255, 80, 170, .22), transparent 60%),
+        radial-gradient(850px 560px at 85% 18%, rgba(0, 220, 255, .18), transparent 60%),
+        radial-gradient(800px 540px at 60% 90%, rgba(0, 255, 170, .16), transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+    }
+
+    .stars::before{
+      content:"";
+      position:fixed; inset:0; z-index:0;
+      background-image:
+        radial-gradient(circle at 10% 15%, rgba(255,255,255,.8) 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(255,255,255,.6) 1px, transparent 2px),
+        radial-gradient(circle at 30% 60%, rgba(255,255,255,.55) 1px, transparent 2px),
+        radial-gradient(circle at 85% 75%, rgba(255,255,255,.7) 1px, transparent 2px),
+        radial-gradient(circle at 55% 40%, rgba(255,255,255,.65) 1px, transparent 2px);
+      background-size: 260px 260px;
+      opacity:.55;
+      animation: drift 10s linear infinite;
+    }
+    @keyframes drift{ from{transform:translateY(0)} to{transform:translateY(20px)} }
+
+    #fx{position:fixed; inset:0; z-index:1; pointer-events:none;}
+
+    .balloon{
+      position:fixed; z-index:1; width:64px; height:84px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 38%),
+                  linear-gradient(180deg, rgba(255,255,255,.0), rgba(0,0,0,.18)),
+                  #ff5aa5;
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+      animation: floaty 7s ease-in-out infinite;
+    }
+    .balloon::after{
+      content:"";
+      position:absolute; left:50%; bottom:-42px;
+      width:2px; height:44px; transform:translateX(-50%);
+      background: rgba(255,255,255,.35);
+    }
+    @keyframes floaty{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+    .b1{left:18px; top:14px;}
+    .b2{right:18px; top:28px; background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 38%),
+      linear-gradient(180deg, rgba(255,255,255,.0), rgba(0,0,0,.18)),
+      #00d7ff;}
+    .b3{left:22px; bottom:70px; background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 38%),
+      linear-gradient(180deg, rgba(255,255,255,.0), rgba(0,0,0,.18)),
+      #00ffb0;}
+
+    .wrap{
+      position:relative; z-index:2;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:20px;
+    }
+    .card{
+      width:min(960px, 100%);
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:28px;
+      padding: clamp(18px, 3.8vw, 36px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.45);
+      backdrop-filter: blur(10px);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(120deg,
+        rgba(255,90,165,.18),
+        rgba(0,215,255,.14),
+        rgba(0,255,176,.14),
+        rgba(255,217,102,.14)
+      );
+      filter: blur(18px);
+      opacity:.85;
+      z-index:-1;
+    }
+
+    h1{
+      margin:10px 0 6px;
+      font-size: clamp(34px, 6vw, 74px);
+      line-height:1.05;
+      letter-spacing:.4px;
+      text-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    .grad{
+      background: linear-gradient(90deg, #ffd166, #00ffb0, #00d7ff, #ff5aa5);
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+    }
+    .sub{
+      margin:0 auto 14px;
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: clamp(14px, 2.2vw, 18px);
+    }
+
+    .kids{
+      display:flex;
+      gap: clamp(10px, 3vw, 18px);
+      justify-content:center;
+      flex-wrap:wrap;
+      margin: 14px 0 6px;
+    }
+    .kid{
+      width:min(240px, 100%);
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      padding:14px 14px 10px;
+      text-align:left;
+      display:flex; gap:12px; align-items:center;
+    }
+    .avatar{
+      width:74px; height:74px; border-radius:18px;
+      background: rgba(255,255,255,.10);
+      display:grid; place-items:center;
+      font-size:44px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+    }
+    .kid h3{margin:0; font-size:16px;}
+    .kid p{margin:4px 0 0; color:var(--muted); font-size:13px;}
+
+    .gifts{
+      display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
+      font-size: 28px;
+      opacity:.95;
+    }
+    .sparkline{
+      margin: 10px auto 0;
+      width:min(720px, 100%);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      opacity:.6;
+    }
+
+    .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px;}
+    button{
+      cursor:pointer;
+      border:0;
+      border-radius:14px;
+      padding: 12px 16px;
+      font-weight:800;
+      background: linear-gradient(90deg,#ffd166,#00ffb0);
+      color:#071018;
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      transition: transform .08s ease, filter .2s ease;
+    }
+    button:active{transform:translateY(1px) scale(.99)}
+    .ghost{
+      background: rgba(255,255,255,.12);
+      color: var(--txt);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:none;
+    }
+
+    .nameBox{
+      margin: 14px auto 0;
+      max-width: 560px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.14);
+      display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap;
+      color: var(--muted);
+    }
+    input{
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      outline:none;
+      min-width: 220px;
+    }
+    .footer{
+      margin-top: 16px;
+      color: rgba(255,255,255,.70);
+      font-size: 13px;
+      display:flex; justify-content:center; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .tag{
+      padding:6px 10px; border-radius:999px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .toast{
+      position:fixed; left:50%; bottom:22px;
+      transform:translateX(-50%);
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      z-index:10;
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body class="stars">
+  <canvas id="fx"></canvas>
+
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <h1><span class="grad">HAPPY NEW YEAR</span> 🎉</h1>
+      <p class="sub">Wishing you happiness, success & lots of smiles ✨</p>
+
+      <div class="kids">
+        <div class="kid"><div class="avatar">🧒</div><div><h3>Cartoon Kid</h3><p>Balloons 🎈 + hugs 🤗</p></div></div>
+        <div class="kid"><div class="avatar">👦</div><div><h3>Cartoon Kid</h3><p>Gifts 🎁 + fun 🥳</p></div></div>
+        <div class="kid"><div class="avatar">👧</div><div><h3>Cartoon Kid</h3><p>Patakhe 🎆 + party 🎉</p></div></div>
+      </div>
+
+      <div class="gifts">🎁 🎁 🍬 🍭 🎈 🎉 🎊</div>
+      <div class="sparkline"></div>
+
+      <div class="actions">
+        <button id="boom">Patakhe 🎆</button>
+        <button class="ghost" id="musicBtn">Play Music ▶️</button>
+        <button class="ghost" id="copy">Copy Link 🔗</button>
+      </div>
+
+      <div class="nameBox">
+        <span>👇 Name:</span>
+        <input id="nameInput" placeholder="Type name here" maxlength="24" />
+        <span class="tag" id="nameTag">Name: —</span>
+      </div>
+
+      <div class="footer">
+        <span class="tag">by <b>Moiz</b> ✍️</span>
+        <span class="tag">Created by <b>Moiz</b> ✅</span>
+        <span class="tag">Tap anywhere = 🎆</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copied ✅</div>
+
+  <script>
+    // -------------------------
+    // Name input
+    // -------------------------
+    const nameInput = document.getElementById("nameInput");
+    const nameTag = document.getElementById("nameTag");
+
+    function setName(v){
+      const clean = (v || "").trim();
+      nameTag.textContent = "Name: " + (clean ? clean : "—");
+      localStorage.setItem("hny_name", clean);
+    }
+    nameInput.addEventListener("input", (e)=> setName(e.target.value));
+    const savedName = localStorage.getItem("hny_name") || "";
+    nameInput.value = savedName;
+    setName(savedName);
+
+    // -------------------------
+    // Copy link
+    // -------------------------
+    document.getElementById("copy").addEventListener("click", async ()=>{
+      const url = location.href;
+      try{
+        await navigator.clipboard.writeText(url);
+        toast("Copied ✅");
+      }catch(e){
+        prompt("Copy link:", url);
+      }
+    });
+
+    // -------------------------
+    // Fireworks canvas
+    // -------------------------
+    const canvas = document.getElementById("fx");
+    const ctx = canvas.getContext("2d");
+    let W=0,H=0,DPR=1;
+
+    function resize(){
+      DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      W = canvas.width = Math.floor(innerWidth * DPR);
+      H = canvas.height = Math.floor(innerHeight * DPR);
+      canvas.style.width = innerWidth + "px";
+      canvas.style.height = innerHeight + "px";
+    }
+    addEventListener("resize", resize, {passive:true});
+    resize();
+
+    const parts = [];
+    const palette = ["#ffd166","#00ffb0","#00d7ff","#ff5aa5","#ffffff","#bdb2ff","#ffeaa7"];
+    function rand(a,b){ return a + Math.random()*(b-a); }
+    function pick(arr){ return arr[(Math.random()*arr.length)|0]; }
+
+    function burst(x,y,count=80){
+      for(let i=0;i<count;i++){
+        const ang = rand(0, Math.PI*2);
+        const sp  = rand(2, 7) * DPR;
+        parts.push({
+          x,y,
+          vx: Math.cos(ang)*sp,
+          vy: Math.sin(ang)*sp,
+          g: 0.08*DPR,
+          life: rand(45, 95),
+          size: rand(1.4, 3.6)*DPR,
+          c: pick(palette),
+          a: 1
+        });
+      }
+    }
+    function popFireworks(n=14){
+      for(let i=0;i<n;i++){
+        setTimeout(()=>{
+          burst(rand(W*0.18, W*0.82), rand(H*0.18, H*0.55), (rand(60,95)|0));
+        }, i*95);
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(let i=parts.length-1;i>=0;i--){
+        const p=parts[i];
+        p.vy += p.g;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= 1;
+        p.a = Math.max(0, p.life/95);
+
+        ctx.globalAlpha = p.a;
+        ctx.fillStyle = p.c;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fill();
+
+        if(p.life<=0 || p.y>H+30 || p.x<-30 || p.x>W+30) parts.splice(i,1);
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    document.getElementById("boom").addEventListener("click", ()=>{
+      popFireworks(20);
+      toast("Boom! 🎆");
+    });
+    setTimeout(()=>popFireworks(16), 500);
+    addEventListener("pointerdown", (e)=>{
+      burst(e.clientX*DPR, e.clientY*DPR, 90);
+    }, {passive:true});
+
+    // -------------------------
+    // Music (built-in, no external file)
+    // -------------------------
+    let audioCtx = null;
+    let isPlaying = false;
+    let nodes = [];
+
+    function beepSong(){
+      // Simple happy melody using WebAudio (no mp3 needed)
+      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const t0 = audioCtx.currentTime;
+
+      // stop old
+      nodes.forEach(n=>{ try{n.stop();}catch(e){} });
+      nodes = [];
+
+      const notes = [
+        523.25, 659.25, 783.99, 659.25, 523.25, 587.33, 659.25, 587.33,
+        523.25, 659.25, 783.99, 880.00, 783.99, 659.25, 587.33, 523.25
+      ];
+      let t = t0;
+      const gain = audioCtx.createGain();
+      gain.gain.value = 0.10;
+      gain.connect(audioCtx.destination);
+
+      notes.forEach((freq, i)=>{
+        const o = audioCtx.createOscillator();
+        o.type = "sine";
+        o.frequency.value = freq;
+
+        const g = audioCtx.createGain();
+        g.gain.value = 0;
+
+        o.connect(g);
+        g.connect(gain);
+
+        const dur = 0.18;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(1, t + 0.02);
+        g.gain.linearRampToValueAtTime(0, t + dur);
+
+        o.start(t);
+        o.stop(t + dur + 0.02);
+
+        nodes.push(o);
+        t += 0.19;
+      });
+
+      // loop
+      const total = (notes.length * 0.19) + 0.2;
+      nodes.loopTimer = setTimeout(()=>{ if(isPlaying) beepSong(); }, total * 1000);
+    }
+
+    function stopSong(){
+      if(nodes.loopTimer) clearTimeout(nodes.loopTimer);
+      nodes.forEach(n=>{ try{n.stop();}catch(e){} });
+      nodes = [];
+    }
+
+    const musicBtn = document.getElementById("musicBtn");
+    musicBtn.addEventListener("click", async ()=>{
+      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      await audioCtx.resume();
+
+      if(!isPlaying){
+        isPlaying = true;
+        musicBtn.textContent = "Stop Music ⏹️";
+        beepSong();
+        toast("Music On 🎵");
+      }else{
+        isPlaying = false;
+        musicBtn.textContent = "Play Music ▶️";
+        stopSong();
+        toast("Music Off ✅");
+      }
+    });
+
+    // toast
+    const toastEl = document.getElementById("toast");
+    let tmr=null;
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.style.opacity = "1";
+      if(tmr) clearTimeout(tmr);
+      tmr = setTimeout(()=> toastEl.style.opacity="0", 1200);
+    }
+  </script>
+</body>
+</html>
