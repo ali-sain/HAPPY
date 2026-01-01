@@ -1,467 +1,541 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy New Year 🎉 — by Moiz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy New Year ✨ | Made by Moiz</title>
   <style>
-    :root{
-      --bg1:#050016; --bg2:#061a2b;
-      --glass: rgba(255,255,255,.08);
-      --glass2: rgba(255,255,255,.12);
-      --txt:#fff;
-      --muted: rgba(255,255,255,.78);
-    }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;}
     body{
-      margin:0; min-height:100vh; overflow:hidden;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--txt);
-      background:
-        radial-gradient(900px 520px at 18% 22%, rgba(255, 80, 170, .22), transparent 60%),
-        radial-gradient(850px 560px at 85% 18%, rgba(0, 220, 255, .18), transparent 60%),
-        radial-gradient(800px 540px at 60% 90%, rgba(0, 255, 170, .16), transparent 55%),
-        linear-gradient(160deg, var(--bg1), var(--bg2));
-    }
-
-    .stars::before{
-      content:"";
-      position:fixed; inset:0; z-index:0;
-      background-image:
-        radial-gradient(circle at 10% 15%, rgba(255,255,255,.8) 1px, transparent 2px),
-        radial-gradient(circle at 70% 20%, rgba(255,255,255,.6) 1px, transparent 2px),
-        radial-gradient(circle at 30% 60%, rgba(255,255,255,.55) 1px, transparent 2px),
-        radial-gradient(circle at 85% 75%, rgba(255,255,255,.7) 1px, transparent 2px),
-        radial-gradient(circle at 55% 40%, rgba(255,255,255,.65) 1px, transparent 2px);
-      background-size: 260px 260px;
-      opacity:.55;
-      animation: drift 10s linear infinite;
-    }
-    @keyframes drift{ from{transform:translateY(0)} to{transform:translateY(20px)} }
-
-    #fx{position:fixed; inset:0; z-index:1; pointer-events:none;}
-
-    .balloon{
-      position:fixed; z-index:1; width:64px; height:84px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 38%),
-                  linear-gradient(180deg, rgba(255,255,255,.0), rgba(0,0,0,.18)),
-                  #ff5aa5;
-      box-shadow: 0 18px 45px rgba(0,0,0,.25);
-      animation: floaty 7s ease-in-out infinite;
-    }
-    .balloon::after{
-      content:"";
-      position:absolute; left:50%; bottom:-42px;
-      width:2px; height:44px; transform:translateX(-50%);
-      background: rgba(255,255,255,.35);
-    }
-    @keyframes floaty{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
-    .b1{left:18px; top:14px;}
-    .b2{right:18px; top:28px; background:
-      radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 38%),
-      linear-gradient(180deg, rgba(255,255,255,.0), rgba(0,0,0,.18)),
-      #00d7ff;}
-    .b3{left:22px; bottom:70px; background:
-      radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 38%),
-      linear-gradient(180deg, rgba(255,255,255,.0), rgba(0,0,0,.18)),
-      #00ffb0;}
-
-    .wrap{
-      position:relative; z-index:2;
       min-height:100vh;
-      display:grid;
-      place-items:center;
-      padding:20px;
-    }
-    .card{
-      width:min(960px, 100%);
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:28px;
-      padding: clamp(18px, 3.8vw, 36px);
-      box-shadow: 0 24px 70px rgba(0,0,0,.45);
-      backdrop-filter: blur(10px);
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: linear-gradient(120deg,
-        rgba(255,90,165,.18),
-        rgba(0,215,255,.14),
-        rgba(0,255,176,.14),
-        rgba(255,217,102,.14)
-      );
-      filter: blur(18px);
-      opacity:.85;
-      z-index:-1;
-    }
-
-    h1{
-      margin:10px 0 6px;
-      font-size: clamp(34px, 6vw, 74px);
-      line-height:1.05;
-      letter-spacing:.4px;
-      text-shadow: 0 12px 40px rgba(0,0,0,.35);
-    }
-    .grad{
-      background: linear-gradient(90deg, #ffd166, #00ffb0, #00d7ff, #ff5aa5);
-      -webkit-background-clip:text; background-clip:text;
-      color:transparent;
-    }
-    .sub{
-      margin:0 auto 14px;
-      max-width: 60ch;
-      color: var(--muted);
-      font-size: clamp(14px, 2.2vw, 18px);
-    }
-
-    .kids{
       display:flex;
-      gap: clamp(10px, 3vw, 18px);
       justify-content:center;
-      flex-wrap:wrap;
-      margin: 14px 0 6px;
+      align-items:center;
+      padding:18px;
+      color:#fff;
+      overflow:hidden;
+      background:#050510;
     }
-    .kid{
-      width:min(240px, 100%);
-      background: rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:22px;
-      padding:14px 14px 10px;
-      text-align:left;
-      display:flex; gap:12px; align-items:center;
+    .bg{
+      position:fixed;inset:0;
+      background: radial-gradient(circle at 20% 20%, #5a2cff33, transparent 45%),
+                  radial-gradient(circle at 80% 30%, #00d9ff22, transparent 45%),
+                  radial-gradient(circle at 50% 85%, #ff2c7a22, transparent 50%),
+                  linear-gradient(180deg, #050510, #070720);
+      z-index:-3;
     }
-    .avatar{
-      width:74px; height:74px; border-radius:18px;
-      background: rgba(255,255,255,.10);
-      display:grid; place-items:center;
-      font-size:44px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+    .stars{
+      position:fixed;inset:-200px;
+      background-image:
+        radial-gradient(#ffffffaa 1px, transparent 1px),
+        radial-gradient(#ffffff88 1px, transparent 1px);
+      background-size: 120px 120px, 200px 200px;
+      background-position: 0 0, 60px 80px;
+      opacity:.35;
+      animation: drift 25s linear infinite;
+      z-index:-2;
     }
-    .kid h3{margin:0; font-size:16px;}
-    .kid p{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    @keyframes drift{to{transform:translateY(120px)}}
 
-    .gifts{
-      display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
-      margin-top:10px;
-      font-size: 28px;
+    .topbar{
+      position:fixed;
+      top:12px; left:12px; right:12px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      z-index:10;
+    }
+    .brand{
+      padding:10px 12px;
+      border:1px solid #ffffff22;
+      background:#0b0b1f88;
+      backdrop-filter: blur(8px);
+      border-radius:14px;
+      font-size:14px;
+    }
+
+    .card{
+      position:relative;
+      width:min(740px, 96vw);
+      min-height:580px;
+      border-radius:26px;
+      border:1px solid #ffffff22;
+      background: linear-gradient(180deg, #0a0a2088, #0a0a2080);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px #00000055;
+      overflow:hidden;
+      padding:26px 22px 18px;
+    }
+    #fx{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      z-index:0;
+    }
+    .page{
+      position:relative;
+      z-index:1;
+      display:none;
+      animation: pop .35s ease;
+    }
+    .page.active{display:block;}
+    @keyframes pop{
+      from{transform:translateY(8px);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
+
+    h1{font-size:34px;letter-spacing:.3px;margin-top:6px;}
+    h2{font-size:28px;margin-top:6px;}
+    .sub{margin-top:10px;opacity:.9;line-height:1.45}
+
+    .bigBadge{
+      margin:18px 0 8px;
+      font-size:42px;
+      text-align:center;
+      padding:18px 12px;
+      border-radius:22px;
+      border:1px solid #ffffff1f;
+      background: radial-gradient(circle at 30% 30%, #ff2c7a22, transparent 45%),
+                  radial-gradient(circle at 70% 70%, #00d9ff22, transparent 45%),
+                  #0a0a2488;
+      box-shadow: 0 12px 30px #00000055;
+    }
+
+    .list{
+      margin-top:14px;
+      padding-left:18px;
+      display:grid;
+      gap:10px;
+    }
+    .list li{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid #ffffff1d;
+      background:#0b0b1f66;
+    }
+
+    .nav{
+      margin-top:22px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .btn{
+      cursor:pointer;
+      border:none;
+      padding:12px 14px;
+      border-radius:16px;
+      background:#ffffff18;
+      color:#fff;
+      border:1px solid #ffffff22;
+      transition:.2s transform, .2s background;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px); background:#ffffff22;}
+    .btn.primary{
+      background: linear-gradient(90deg, #ff2c7a88, #00d9ff88);
+      border:1px solid #ffffff33;
+    }
+    .btn.small{padding:10px 12px;border-radius:14px;font-size:13px;}
+
+    .countGrid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .countBox{
+      text-align:center;
+      padding:16px 10px;
+      border-radius:18px;
+      border:1px solid #ffffff1f;
+      background:#0b0b1f66;
+    }
+    .countBox span{display:block;font-size:34px;font-weight:700;}
+    .countBox small{opacity:.85}
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .tile{
+      height:110px;
+      border-radius:20px;
+      border:1px solid #ffffff1f;
+      background: radial-gradient(circle at 30% 30%, #ffffff22, transparent 45%),
+                  #0b0b1f66;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:40px;
+      box-shadow: 0 10px 24px #00000044;
+    }
+
+    .pillRow{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .pill{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid #ffffff22;
+      background:#0b0b1f66;
+      font-size:13px;
       opacity:.95;
     }
-    .sparkline{
-      margin: 10px auto 0;
-      width:min(720px, 100%);
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
-      opacity:.6;
-    }
 
-    .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px;}
-    button{
-      cursor:pointer;
-      border:0;
-      border-radius:14px;
-      padding: 12px 16px;
-      font-weight:800;
-      background: linear-gradient(90deg,#ffd166,#00ffb0);
-      color:#071018;
-      box-shadow: 0 10px 28px rgba(0,0,0,.35);
-      transition: transform .08s ease, filter .2s ease;
+    .giftBox{
+      margin-top:16px;
+      padding:16px;
+      border-radius:22px;
+      border:1px solid #ffffff22;
+      background:#0b0b1f66;
+      text-align:center;
     }
-    button:active{transform:translateY(1px) scale(.99)}
-    .ghost{
-      background: rgba(255,255,255,.12);
-      color: var(--txt);
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow:none;
-    }
+    .giftEmoji{font-size:64px;margin:6px 0 12px;}
+    .giftText{margin-top:12px;opacity:.95;line-height:1.5;min-height:48px;}
 
-    .nameBox{
-      margin: 14px auto 0;
-      max-width: 560px;
-      padding: 12px 14px;
-      border-radius: 18px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.14);
-      display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap;
-      color: var(--muted);
-    }
-    input{
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      color: #fff;
-      border-radius: 12px;
-      padding: 10px 12px;
-      outline:none;
-      min-width: 220px;
-    }
     .footer{
-      margin-top: 16px;
-      color: rgba(255,255,255,.70);
-      font-size: 13px;
-      display:flex; justify-content:center; gap:10px; flex-wrap:wrap; align-items:center;
+      position:relative;
+      z-index:1;
+      margin-top:18px;
+      text-align:center;
+      padding-top:12px;
+      border-top:1px solid #ffffff18;
+      opacity:.9;
+      font-size:13px;
     }
-    .tag{
-      padding:6px 10px; border-radius:999px;
-      background: rgba(0,0,0,.25);
-      border:1px solid rgba(255,255,255,.12);
+
+    .hint{
+      margin-top:10px;
+      font-size:13px;
+      opacity:.85;
+      border:1px dashed #ffffff2a;
+      padding:10px 12px;
+      border-radius:16px;
+      background:#0b0b1f55;
     }
-    .toast{
-      position:fixed; left:50%; bottom:22px;
-      transform:translateX(-50%);
-      padding:10px 14px;
-      border-radius:999px;
-      background: rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.92);
-      backdrop-filter: blur(8px);
-      z-index:10;
-      opacity:0; pointer-events:none;
-      transition: opacity .2s ease;
-      font-size:14px;
+
+    @media (max-width:480px){
+      h1{font-size:28px}
+      h2{font-size:24px}
+      .countBox span{font-size:28px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .tile{height:96px}
     }
   </style>
 </head>
+<body>
 
-<body class="stars">
-  <canvas id="fx"></canvas>
+  <div class="bg"></div>
+  <div class="stars"></div>
 
-  <div class="balloon b1"></div>
-  <div class="balloon b2"></div>
-  <div class="balloon b3"></div>
+  <header class="topbar">
+    <div class="brand">🎉 Happy New Year Website — <b>Moiz</b></div>
 
-  <div class="wrap">
-    <div class="card">
-      <h1><span class="grad">HAPPY NEW YEAR</span> 🎉</h1>
-      <p class="sub">Wishing you happiness, success & lots of smiles ✨</p>
+    <button id="musicBtn" class="btn small" aria-label="Toggle music">
+      🔊 Music: ON
+    </button>
 
-      <div class="kids">
-        <div class="kid"><div class="avatar">🧒</div><div><h3>Cartoon Kid</h3><p>Balloons 🎈 + hugs 🤗</p></div></div>
-        <div class="kid"><div class="avatar">👦</div><div><h3>Cartoon Kid</h3><p>Gifts 🎁 + fun 🥳</p></div></div>
-        <div class="kid"><div class="avatar">👧</div><div><h3>Cartoon Kid</h3><p>Patakhe 🎆 + party 🎉</p></div></div>
+    <!-- Put music.mp3 in same folder to work -->
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </header>
+
+  <main class="card">
+    <canvas id="fx"></canvas>
+
+    <!-- PAGE 1 -->
+    <section class="page active" data-page="0">
+      <h1>✨ Happy New Year 2026 ✨</h1>
+      <p class="sub">Naya saal, nayi umeedein — dua hai aapki zindagi khushiyon se bhar jaye! 🥳</p>
+
+      <div class="bigBadge">🎆 2026 🎆</div>
+
+      <div class="hint">
+        ✅ <b>Tip:</b> Fireworks ke liye card ke andar tap/click karo. <br/>
+        ✅ Music play na ho to pehle <b>Music button</b> dabao (mobile policy).
       </div>
 
-      <div class="gifts">🎁 🎁 🍬 🍭 🎈 🎉 🎊</div>
-      <div class="sparkline"></div>
+      <div class="nav">
+        <span></span>
+        <button class="btn primary" data-nav="next">Next ➜</button>
+      </div>
+    </section>
 
-      <div class="actions">
-        <button id="boom">Patakhe 🎆</button>
-        <button class="ghost" id="musicBtn">Play Music ▶️</button>
-        <button class="ghost" id="copy">Copy Link 🔗</button>
+    <!-- PAGE 2 -->
+    <section class="page" data-page="1">
+      <h2>💖 New Year Wishes</h2>
+      <ul class="list">
+        <li>Allah aapko sehat, rizq aur khushi de 🤲</li>
+        <li>Har din nayi umeed aur nayi jeet ho 🌟</li>
+        <li>Gham door, muskurahat zaroor 😊</li>
+        <li>Naya saal, nayi kamyabiyan 💪</li>
+        <li>Family aur friends ke sath sukoon bhara waqt ❤️</li>
+      </ul>
+
+      <div class="nav">
+        <button class="btn" data-nav="back">⬅ Back</button>
+        <button class="btn primary" data-nav="next">Next ➜</button>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" data-page="2">
+      <h2>⏳ Countdown</h2>
+      <p class="sub">Next New Year tak kitna time bacha hai? 🎇</p>
+
+      <div class="countGrid">
+        <div class="countBox"><span id="d">00</span><small>Days</small></div>
+        <div class="countBox"><span id="h">00</span><small>Hours</small></div>
+        <div class="countBox"><span id="m">00</span><small>Minutes</small></div>
+        <div class="countBox"><span id="s">00</span><small>Seconds</small></div>
       </div>
 
-      <div class="nameBox">
-        <span>👇 Name:</span>
-        <input id="nameInput" placeholder="Type name here" maxlength="24" />
-        <span class="tag" id="nameTag">Name: —</span>
+      <div class="nav">
+        <button class="btn" data-nav="back">⬅ Back</button>
+        <button class="btn primary" data-nav="next">Next ➜</button>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="page" data-page="3">
+      <h2>📸 Gallery</h2>
+      <p class="sub">Cute emoji gallery — agar chaaho to apni pics bhi laga sakte ho 😄</p>
+
+      <div class="grid">
+        <div class="tile">🎉</div>
+        <div class="tile">🎆</div>
+        <div class="tile">✨</div>
+        <div class="tile">🥳</div>
+        <div class="tile">🎁</div>
+        <div class="tile">🍾</div>
       </div>
 
-      <div class="footer">
-        <span class="tag">by <b>Moiz</b> ✍️</span>
-        <span class="tag">Created by <b>Moiz</b> ✅</span>
-        <span class="tag">Tap anywhere = 🎆</span>
+      <div class="nav">
+        <button class="btn" data-nav="back">⬅ Back</button>
+        <button class="btn primary" data-nav="next">Next ➜</button>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="toast" id="toast">Copied ✅</div>
+    <!-- PAGE 5 -->
+    <section class="page" data-page="4">
+      <h2>🎇 Fireworks Mode</h2>
+      <p class="sub">Card ke andar tap/click karo — fireworks blast! 💥</p>
+
+      <div class="pillRow">
+        <span class="pill">Tap for fireworks</span>
+        <span class="pill">Music ON/OFF</span>
+        <span class="pill">Next page</span>
+        <span class="pill">Made by Moiz</span>
+      </div>
+
+      <div class="hint">
+        🔥 Pro: Tap multiple times for heavy fireworks!
+      </div>
+
+      <div class="nav">
+        <button class="btn" data-nav="back">⬅ Back</button>
+        <button class="btn primary" data-nav="next">Next ➜</button>
+      </div>
+    </section>
+
+    <!-- PAGE 6 -->
+    <section class="page" data-page="5">
+      <h2>🎁 Surprise Gift</h2>
+      <p class="sub">Button dabao — gift reveal 😄</p>
+
+      <div class="giftBox">
+        <div id="giftEmoji" class="giftEmoji">🎁</div>
+        <button id="giftBtn" class="btn primary">Collect your Gift 🎉</button>
+        <p id="giftText" class="giftText"></p>
+      </div>
+
+      <div class="nav">
+        <button class="btn" data-nav="back">⬅ Back</button>
+        <button class="btn primary" id="restartBtn">Restart ↺</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Made by <b>Moiz</b> ❤️ | Happy New Year ✨
+    </footer>
+  </main>
 
   <script>
-    // -------------------------
-    // Name input
-    // -------------------------
-    const nameInput = document.getElementById("nameInput");
-    const nameTag = document.getElementById("nameTag");
+    // ---------- Page Navigation ----------
+    const pages = [...document.querySelectorAll(".page")];
+    let current = 0;
 
-    function setName(v){
-      const clean = (v || "").trim();
-      nameTag.textContent = "Name: " + (clean ? clean : "—");
-      localStorage.setItem("hny_name", clean);
+    function showPage(i){
+      current = Math.max(0, Math.min(i, pages.length - 1));
+      pages.forEach(p => p.classList.remove("active"));
+      pages[current].classList.add("active");
     }
-    nameInput.addEventListener("input", (e)=> setName(e.target.value));
-    const savedName = localStorage.getItem("hny_name") || "";
-    nameInput.value = savedName;
-    setName(savedName);
 
-    // -------------------------
-    // Copy link
-    // -------------------------
-    document.getElementById("copy").addEventListener("click", async ()=>{
-      const url = location.href;
-      try{
-        await navigator.clipboard.writeText(url);
-        toast("Copied ✅");
-      }catch(e){
-        prompt("Copy link:", url);
+    document.querySelectorAll("[data-nav='next']").forEach(btn =>
+      btn.addEventListener("click", () => showPage(current + 1))
+    );
+    document.querySelectorAll("[data-nav='back']").forEach(btn =>
+      btn.addEventListener("click", () => showPage(current - 1))
+    );
+
+    document.getElementById("restartBtn")?.addEventListener("click", () => showPage(0));
+
+    // ---------- Music ----------
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+    let musicOn = true;
+
+    function safePlay(){
+      if(!music) return;
+      music.volume = 0.7;
+      music.play().catch(()=>{ /* blocked until interaction */ });
+    }
+    safePlay();
+
+    musicBtn?.addEventListener("click", () => {
+      if(!music) return;
+      musicOn = !musicOn;
+      if(musicOn){
+        music.play().catch(()=>{});
+        musicBtn.textContent = "🔊 Music: ON";
+      }else{
+        music.pause();
+        musicBtn.textContent = "🔇 Music: OFF";
       }
     });
 
-    // -------------------------
-    // Fireworks canvas
-    // -------------------------
+    // ---------- Countdown (to next Jan 1) ----------
+    function updateCountdown(){
+      const now = new Date();
+      const year = now.getFullYear();
+      const target = new Date(year + 1, 0, 1, 0, 0, 0); // Jan 1 next year
+      const diff = Math.max(0, target - now);
+
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff / (1000*60*60)) % 24);
+      const m = Math.floor((diff / (1000*60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      const pad = (n) => String(n).padStart(2, "0");
+      document.getElementById("d").textContent = pad(d);
+      document.getElementById("h").textContent = pad(h);
+      document.getElementById("m").textContent = pad(m);
+      document.getElementById("s").textContent = pad(s);
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // ---------- Gift ----------
+    const giftBtn = document.getElementById("giftBtn");
+    const giftText = document.getElementById("giftText");
+    const giftEmoji = document.getElementById("giftEmoji");
+
+    const gifts = [
+      "🎊 Surprise! 2026 me tumhari life me new blessings, new money & new wins! 💸✨",
+      "🥳 Dua: Har mushkil asaan, har din khush, har raat sukoon! 🤲",
+      "🎁 Gift: Unlimited smiles + success streak! 😄🔥",
+      "✨ Wish: Tumhara naam roshan ho, goals complete hon! 🌟",
+      "🚀 2026 = Growth mode ON. Big achievements incoming! 💪"
+    ];
+
+    giftBtn?.addEventListener("click", () => {
+      const pick = gifts[Math.floor(Math.random()*gifts.length)];
+      giftText.textContent = pick;
+
+      const emojis = ["🎁","💎","🏆","💰","🎇","🌟"];
+      giftEmoji.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+
+      blastFireworks(18);
+    });
+
+    // ---------- Fireworks (Canvas) ----------
     const canvas = document.getElementById("fx");
     const ctx = canvas.getContext("2d");
-    let W=0,H=0,DPR=1;
+    let W, H;
 
     function resize(){
-      DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      W = canvas.width = Math.floor(innerWidth * DPR);
-      H = canvas.height = Math.floor(innerHeight * DPR);
-      canvas.style.width = innerWidth + "px";
-      canvas.style.height = innerHeight + "px";
+      W = canvas.width = canvas.clientWidth;
+      H = canvas.height = canvas.clientHeight;
     }
-    addEventListener("resize", resize, {passive:true});
+    window.addEventListener("resize", resize);
     resize();
 
-    const parts = [];
-    const palette = ["#ffd166","#00ffb0","#00d7ff","#ff5aa5","#ffffff","#bdb2ff","#ffeaa7"];
-    function rand(a,b){ return a + Math.random()*(b-a); }
-    function pick(arr){ return arr[(Math.random()*arr.length)|0]; }
+    const particles = [];
+    const rand = (min, max) => Math.random()*(max-min)+min;
 
-    function burst(x,y,count=80){
+    function createBurst(x, y, count=40){
       for(let i=0;i<count;i++){
         const ang = rand(0, Math.PI*2);
-        const sp  = rand(2, 7) * DPR;
-        parts.push({
-          x,y,
-          vx: Math.cos(ang)*sp,
-          vy: Math.sin(ang)*sp,
-          g: 0.08*DPR,
-          life: rand(45, 95),
-          size: rand(1.4, 3.6)*DPR,
-          c: pick(palette),
-          a: 1
+        const spd = rand(2, 6);
+        particles.push({
+          x, y,
+          vx: Math.cos(ang)*spd,
+          vy: Math.sin(ang)*spd,
+          life: rand(40, 90),
+          size: rand(1.2, 2.8),
+          hue: rand(0, 360)
         });
       }
     }
-    function popFireworks(n=14){
-      for(let i=0;i<n;i++){
+
+    function blastFireworks(times=8){
+      for(let i=0;i<times;i++){
         setTimeout(()=>{
-          burst(rand(W*0.18, W*0.82), rand(H*0.18, H*0.55), (rand(60,95)|0));
-        }, i*95);
+          createBurst(rand(W*0.15, W*0.85), rand(H*0.2, H*0.65), Math.floor(rand(25, 65)));
+        }, i*90);
       }
     }
-    function draw(){
+
+    function tick(){
       ctx.clearRect(0,0,W,H);
-      for(let i=parts.length-1;i>=0;i--){
-        const p=parts[i];
-        p.vy += p.g;
+
+      // soft trail
+      ctx.fillStyle = "rgba(0,0,0,0.18)";
+      ctx.fillRect(0,0,W,H);
+
+      for(let i=particles.length-1;i>=0;i--){
+        const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
+        p.vy += 0.05;
+        p.vx *= 0.99;
+        p.vy *= 0.99;
         p.life -= 1;
-        p.a = Math.max(0, p.life/95);
 
-        ctx.globalAlpha = p.a;
-        ctx.fillStyle = p.c;
+        const alpha = Math.max(0, p.life/90);
         ctx.beginPath();
+        ctx.fillStyle = `hsla(${p.hue}, 100%, 70%, ${alpha})`;
         ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
         ctx.fill();
 
-        if(p.life<=0 || p.y>H+30 || p.x<-30 || p.x>W+30) parts.splice(i,1);
+        if(p.life <= 0) particles.splice(i,1);
       }
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(draw);
+
+      requestAnimationFrame(tick);
     }
-    draw();
+    tick();
 
-    document.getElementById("boom").addEventListener("click", ()=>{
-      popFireworks(20);
-      toast("Boom! 🎆");
-    });
-    setTimeout(()=>popFireworks(16), 500);
-    addEventListener("pointerdown", (e)=>{
-      burst(e.clientX*DPR, e.clientY*DPR, 90);
-    }, {passive:true});
+    // initial fireworks
+    setTimeout(()=> blastFireworks(10), 400);
 
-    // -------------------------
-    // Music (built-in, no external file)
-    // -------------------------
-    let audioCtx = null;
-    let isPlaying = false;
-    let nodes = [];
+    // tap/click fireworks (only inside card area)
+    document.addEventListener("pointerdown", (e)=>{
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    function beepSong(){
-      // Simple happy melody using WebAudio (no mp3 needed)
-      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const t0 = audioCtx.currentTime;
-
-      // stop old
-      nodes.forEach(n=>{ try{n.stop();}catch(e){} });
-      nodes = [];
-
-      const notes = [
-        523.25, 659.25, 783.99, 659.25, 523.25, 587.33, 659.25, 587.33,
-        523.25, 659.25, 783.99, 880.00, 783.99, 659.25, 587.33, 523.25
-      ];
-      let t = t0;
-      const gain = audioCtx.createGain();
-      gain.gain.value = 0.10;
-      gain.connect(audioCtx.destination);
-
-      notes.forEach((freq, i)=>{
-        const o = audioCtx.createOscillator();
-        o.type = "sine";
-        o.frequency.value = freq;
-
-        const g = audioCtx.createGain();
-        g.gain.value = 0;
-
-        o.connect(g);
-        g.connect(gain);
-
-        const dur = 0.18;
-        g.gain.setValueAtTime(0, t);
-        g.gain.linearRampToValueAtTime(1, t + 0.02);
-        g.gain.linearRampToValueAtTime(0, t + dur);
-
-        o.start(t);
-        o.stop(t + dur + 0.02);
-
-        nodes.push(o);
-        t += 0.19;
-      });
-
-      // loop
-      const total = (notes.length * 0.19) + 0.2;
-      nodes.loopTimer = setTimeout(()=>{ if(isPlaying) beepSong(); }, total * 1000);
-    }
-
-    function stopSong(){
-      if(nodes.loopTimer) clearTimeout(nodes.loopTimer);
-      nodes.forEach(n=>{ try{n.stop();}catch(e){} });
-      nodes = [];
-    }
-
-    const musicBtn = document.getElementById("musicBtn");
-    musicBtn.addEventListener("click", async ()=>{
-      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      await audioCtx.resume();
-
-      if(!isPlaying){
-        isPlaying = true;
-        musicBtn.textContent = "Stop Music ⏹️";
-        beepSong();
-        toast("Music On 🎵");
-      }else{
-        isPlaying = false;
-        musicBtn.textContent = "Play Music ▶️";
-        stopSong();
-        toast("Music Off ✅");
+      if(x>=0 && y>=0 && x<=rect.width && y<=rect.height){
+        createBurst(x, y, 60);
       }
-    });
 
-    // toast
-    const toastEl = document.getElementById("toast");
-    let tmr=null;
-    function toast(msg){
-      toastEl.textContent = msg;
-      toastEl.style.opacity = "1";
-      if(tmr) clearTimeout(tmr);
-      tmr = setTimeout(()=> toastEl.style.opacity="0", 1200);
-    }
+      // also try play music after first interaction (mobile autoplay fix)
+      if(musicOn) safePlay();
+    });
   </script>
 </body>
 </html>
